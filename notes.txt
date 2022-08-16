@@ -1,0 +1,13 @@
+npx create-react-app client
+
+
+npm run serve
+
+(/client) npm start
+
+npm init -y
+touch index.js .gitignore
+put config.js in .gitignore
+npm install apollo-server graphql mongoose
+npm i -D nodemon
+npm i bcryptjs jsonwebtoken
