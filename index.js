@@ -24,7 +24,3 @@ mongoose.connect(MONGODB, { useNewUrlParser: true })
     .catch(err => {
         console.log(err);
     })
-
-
-
-
