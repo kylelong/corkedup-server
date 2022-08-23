@@ -1,7 +1,7 @@
 {
   "scripts": {
     "server": "node index",
-    "start": "nodemon index"
+    "start": "node index"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
