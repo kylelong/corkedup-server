@@ -11,3 +11,41 @@ put config.js in .gitignore
 npm install apollo-server graphql mongoose
 npm i -D nodemon
 npm i bcryptjs jsonwebtoken
+
+
+--- index.js -----
+const express = require("express");
+const { ApolloServer } = require('apollo-server-express');
+const mongoose = require('mongoose');
+const app = express();
+
+const PORT = process.env.port || 5000;
+
+const typeDefs = require('./graphql/typeDefs');
+const resolvers = require('./graphql/resolvers');
+const { MONGODB } = require('./config.js');
+
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: ({ req }) => ({ req })
+});
+
+mongoose.connect(MONGODB, { useNewUrlParser: true });
+
+mongoose.connection.once('open', () => console.log("Connected to MONGODB instance"));
+mongoose.connection.on('error', error => console.error(error));
+
+server.start().then(res => {
+    server.applyMiddleware({ app });
+    console.log(res);
+    app.listen({ port: PORT }, () => {
+        console.log(`Server running at ...`);
+    })
+})
+
+--- end of index.js ---
+
+netlify: http://localhost:9000/.netlify/functions/api/wtso
+http://localhost:9000/.netlify/functions/api/lastbottle
+
