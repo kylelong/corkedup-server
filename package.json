@@ -1,8 +1,7 @@
 {
   "scripts": {
     "server": "node index",
-    "start": "node index",
-    "build": "npm run build"
+    "start": "node index"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
